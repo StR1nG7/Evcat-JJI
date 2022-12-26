@@ -1,0 +1,31 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    width: 280px;
+    position: relative;
+}
+
+.logo {
+    width: 40%;
+    margin-bottom: 90px;
+}
+
+.no_account {
+    color: white;
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    cursor: pointer;
+    padding: 3px;
+    transition: 0.14s ease-in-out;
+}
+
+.no_account:hover {
+    background-color: #4044ED;
+}
