@@ -6,7 +6,7 @@ import { asyncTodoReducerAction } from '../../src/store/actions';
 
 
 const TodoList = ({input}) => {
-  const username = JSON.parse(localStorage.getItem('token')).username;
+  const username = localStorage.getItem('token')? JSON.parse(localStorage.getItem('token')).username : undefined;
   const dispatch = useDispatch();
   const todos = useSelector(state => state.todos.todos);
   const todoItems = todos.filter(todo => todo.authorusername === username);

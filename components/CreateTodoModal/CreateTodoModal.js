@@ -21,6 +21,18 @@ const CreateTodoModal = () => {
   const dispatch = useDispatch()
 
   const createTodoItem = async(fields) => {
+    if(!fields.title || !fields.body) {
+      return toast.warn('Please fill All inputs', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      })
+    }
     const requestData = {
       title: fields.title,
       body: fields.body,
@@ -32,7 +44,7 @@ const CreateTodoModal = () => {
       reset();
       toast.success('Todo created successfully', {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

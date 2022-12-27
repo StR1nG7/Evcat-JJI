@@ -16,8 +16,9 @@ export default async function handler(req, res) {
             token
         }
         await prisma.users.create({data: user});
-        res.status(201).json(undefined);   
+        res.status(201).json(undefined);  
     } catch (error) {
+        console.log(error.message);
         res.send(error.message);
     }
 

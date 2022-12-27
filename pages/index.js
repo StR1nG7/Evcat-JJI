@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
-import axios from 'axios';
+
 import { useRouter } from "next/router";
 import { SearchTodoInput, NewTaskButton, CreateTodoModal, TodoItemDetails  } from '../components';
 import { useDispatch } from 'react-redux';
@@ -16,7 +16,7 @@ export default function Home() {
   const router = useRouter();
   useEffect(() => {
     const storage = JSON.parse(localStorage.getItem('token'));
-    if(!storage.token) {
+    if(!storage) {
       router.push("/auth")
     }
   })
