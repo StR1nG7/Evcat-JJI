@@ -1,15 +1,14 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/Auth.module.css';
 import { SignIn, SignUp } from '../components';
-import { useState } from 'react';
 
-const auth = () => {
+const Auth = () => {
     const [ value, setValue ] = useState(true);
-    React.useEffect(() => {
+    useEffect(() => {
         localStorage.clear();
-    }, [])
+    }, []);
   return (
     <>
     <Head>
@@ -36,5 +35,5 @@ const auth = () => {
   )
 }
 
-export default auth;
+export default Auth;
 

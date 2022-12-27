@@ -8,5 +8,6 @@ const DialogInput = React.forwardRef(({ type, placeholder, height, ...props}, re
   return <input  style={style} className={styles.input} type={type} placeholder={placeholder} {...props} ref={ref} />
 });
 
+DialogInput.displayName = 'DialogInput';
 
 export default DialogInput;

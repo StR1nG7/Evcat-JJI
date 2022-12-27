@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.title {
+    color: white;
+}
+
+.link {
+    text-decoration: none;
+    background: -webkit-linear-gradient(55.95deg, #A7C2DA 21.6%, #F5CFC4 61.12%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
