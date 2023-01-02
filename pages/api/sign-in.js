@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     try {
         const codedToken = await prisma.users.findFirst({where: { username: req.body.username }});
         if (codedToken === null) {
-            res.send('No user created');
+            return res.send('No user created');
         }
         const userDecoded = jwt.decode(codedToken.token, process.env.SECRET_KEY);
         const userToSend = {
@@ -17,8 +17,9 @@ export default async function handler(req, res) {
         }
         if(userDecoded.username === req.body.username && userDecoded.password === req.body.password) {
             res.send(userToSend);
+        }else {
+            res.send('Invalid password');   
         }
-        res.send('Invalid password');   
     } catch (error) {
         res.send(error.message);
     }

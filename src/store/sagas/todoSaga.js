@@ -7,7 +7,6 @@ const fetcher = () => axios.post(`${process.env.NEXT_PUBLIC_SITE_URL}/api/get-to
 
 function* todoWorker() {
     const {data} = yield call(fetcher);
-    yield console.log(data);
     yield put(todoReducerAction(data))
 }
 
