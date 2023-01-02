@@ -7,6 +7,7 @@ import { AppButton } from '..';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { toastifyConfig } from '../../src/data/toastify';
 
 const TodoItemDetails = () => {
     const details = useSelector(state => state.details.detailsOpen);
@@ -20,16 +21,7 @@ const TodoItemDetails = () => {
     const deleteTodo = async() => {
       await axios.delete(`${process.env.NEXT_PUBLIC_SITE_URL}/api/delete-todo`, {data: {key: process.env.NEXT_PUBLIC_TODO_KEY, id: data.id}});
       dispatch(asyncTodoReducerAction());
-      return toast.success('Todo deleted', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      return toast.success('Todo deleted', toastifyConfig);
     }
   return (
     <dialog 

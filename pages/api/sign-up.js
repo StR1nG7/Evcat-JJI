@@ -4,7 +4,9 @@ import { PrismaClient } from '@prisma/client'
 export const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
-
+    if (req.body.key !== process.env.NEXT_PUBLIC_TODO_KEY) {
+        return res.send("Invalid key")
+    }
     try {
         const existUser = await prisma.users.findFirst({where: {username: req.body.username}});
         if (existUser !== null) {

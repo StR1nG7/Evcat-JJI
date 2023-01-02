@@ -7,6 +7,7 @@ import useLocalStorage from 'use-local-storage';
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { toastifyConfig } from '../../src/data/toastify';
 
 const SignIn = () => {
   const router = useRouter();
@@ -15,16 +16,7 @@ const SignIn = () => {
   const signIn = async(value) => {
     const { data } = await axios.post(`${process.env.NEXT_PUBLIC_SITE_URL}/api/sign-in`, value);
     if(data.token === undefined) {
-      return toast.warn('Invalid username or password', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      return toast.warn('Invalid username or password', toastifyConfig);
     }
     setUserStorage(data);
     router.push('/')

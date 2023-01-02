@@ -4,6 +4,7 @@ import { PrismaClient } from '@prisma/client'
 export const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
+    
     try {
         const codedToken = await prisma.users.findFirst({where: { username: req.body.username }});
         if (codedToken === null) {

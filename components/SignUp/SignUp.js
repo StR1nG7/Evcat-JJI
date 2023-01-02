@@ -5,39 +5,26 @@ import axios from 'axios';
 import styles from './SignUp.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { toastifyConfig } from '../../src/data/toastify';
 
 const SignUp = () => {
 
   const { register, handleSubmit, reset } = useForm();
   const signUp = async(value) => {
     if(value.password !== value.confirmPassword) {
-      return toast.warn("The repeated password doesn't match", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-    });
+      return toast.warn("The repeated password doesn't match", toastifyConfig);
     }
     const config = {
       username: value.username,
-      password: value.password
+      password: value.password,
+      key: process.env.NEXT_PUBLIC_TODO_KEY
     }
-      await axios.post(`${process.env.NEXT_PUBLIC_SITE_URL}/api/sign-up`, config);
+    const {data} = await axios.post(`${process.env.NEXT_PUBLIC_SITE_URL}/api/sign-up`, config);
+    if(data === 'User already exists') {
+      return toast.error('User already exist!', toastifyConfig);
+    }
     reset();
-    return toast.success('User signed up successfully', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-    });
+    return toast.success('User signed up successfully!', toastifyConfig);
   }
   return (
     <form className={styles.form} onSubmit={handleSubmit(signUp)} >

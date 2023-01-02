@@ -11,6 +11,7 @@ import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { motion } from 'framer-motion';
+import { toastifyConfig } from '../../src/data/toastify';
 
 
 
@@ -22,16 +23,7 @@ const CreateTodoModal = () => {
 
   const createTodoItem = async(fields) => {
     if(!fields.title || !fields.body) {
-      return toast.warn('Please fill All inputs', {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      })
+      return toast.warn('Please fill All inputs', toastifyConfig)
     }
     const requestData = {
       title: fields.title,
@@ -42,16 +34,7 @@ const CreateTodoModal = () => {
       await axios.post(`${process.env.NEXT_PUBLIC_SITE_URL}/api/create-todo`, requestData);
       dispatch(asyncTodoReducerAction());
       reset();
-      toast.success('Todo created successfully', {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      })
+      toast.success('Todo created successfully', toastifyConfig);
   }
 
   return (
