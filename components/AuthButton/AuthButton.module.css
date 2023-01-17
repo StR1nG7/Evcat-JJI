@@ -1,0 +1,13 @@
+.button {
+    background-color: #4044ED;
+    height: 40px;
+    border: none;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    transition: 0.15s ease-in-out;
+}
+
+.button:hover {
+    background-color: rgba(64, 68, 237, 0.5);
+}

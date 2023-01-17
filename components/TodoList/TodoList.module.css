@@ -1,0 +1,29 @@
+.todo_container {
+    height: 500px;
+    width: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    padding: 10px;
+}
+
+.todo_container::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+
+.todo_container::-webkit-scrollbar-track {
+    background: rgba(6, 5, 11, 0.8);
+}
+
+.todo_container::-webkit-scrollbar-thumb {
+    background: linear-gradient(164.66deg, #A7C2DA 21.91%, #F5CFC4 94.63%);
+    border-radius: 2px;
+}
+
+.no_yet {
+    color: white;
+    text-align: center;
+}

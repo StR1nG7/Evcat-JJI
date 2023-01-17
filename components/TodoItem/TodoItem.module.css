@@ -1,0 +1,28 @@
+.todo_container {
+    width: 100%;
+    background: linear-gradient(55.95deg, #A7C2DA 21.6%, #F5CFC4 61.12%);
+    border-radius: 13px;
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.title {
+    font-size: 17px;
+    font-weight: 900;
+}
+
+
+.date {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.show_more {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 20px
+}
