@@ -1,0 +1,12 @@
+.button {
+    border-radius: 10px;
+    background: linear-gradient(164.66deg, #A7C2DA 21.91%, #F5CFC4 94.63%);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:active {
+    transform: scale(0.98);
+}

@@ -1,0 +1,30 @@
+.input_container {
+    position: relative;
+}
+
+.mignifier {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.input {
+    height: 44px;
+    width: 300px;
+    border-radius: 16px;
+    border: none;
+    padding-left: 55px;
+    color: white;
+    background-color: #25252F;
+}
+
+.input::placeholder {
+    color: #585858;
+}
+
+.input:focus {
+    outline: none;
+}

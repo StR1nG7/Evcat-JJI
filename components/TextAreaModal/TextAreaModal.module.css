@@ -1,0 +1,15 @@
+.text_area {
+    width: 300px;
+    border-radius: 16px;
+    border: none;
+    padding: 20px;
+    color: white;
+    background-color: #25252F;
+    height: 150px;
+    resize: none;
+}
+
+.text_area:focus {
+    outline: none;
+}
+

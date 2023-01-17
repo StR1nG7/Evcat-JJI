@@ -1,0 +1,15 @@
+.btn_container {
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
+}
+
+
+.todo_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    row-gap: 30px;
+}
